@@ -32,10 +32,12 @@
 param(
 [string]$Computername = "localhost", #Parameter mit Defaultwert
 
+[ValidateSet(4624,4625,4634)] #prüft das der angegebene Wert in dem Definierten Satz an gültigen Werten enthalten ist.
 [Parameter(Mandatory=$true)] #Fügt dem Parameter erweiterte Eigenschaften hinzu, wie zb Mandatory um es zu einem Pflicht parameter zu machen
 [int]$EventId  ,
 
-[int]$Newest = 10 # Parameter mit Defaultwert
+[ValidateRange(5,10)] #prüft auf eine valide Range mit Mindest und Maximalwert
+[int]$Newest = 5 # Parameter mit Defaultwert
 )
 
 Write-Verbose -Message "Es wurde das Skript mit folgenden Werten geladen: Computername: $Computername , $EventId , $Newest"
