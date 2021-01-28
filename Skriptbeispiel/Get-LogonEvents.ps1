@@ -43,7 +43,7 @@ param(
 )
 
 Write-Verbose -Message "Es wurde das Skript mit folgenden Werten geladen: Computername: $Computername , $EventId , $Newest"
-
+Write-Debug -Message "vor eigentlicher Abfrage"
 Get-EventLog -LogName Security -ComputerName $Computername | Where-Object EventID -eq $EventId | Select-Object -First $Newest
 
 
