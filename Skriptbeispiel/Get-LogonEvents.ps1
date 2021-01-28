@@ -30,6 +30,8 @@
 #>
 [cmdletBinding()]
 param(
+
+[ValidateScript({Test-NetConnection -computerName $PSItem -Port 5985 -InformationLevel Quiet })] #prüft ob der angegeben Computername über WinRM erreichbar ist
 [string]$Computername = "localhost", #Parameter mit Defaultwert
 
 [ValidateSet(4624,4625,4634)] #prüft das der angegebene Wert in dem Definierten Satz an gültigen Werten enthalten ist.
